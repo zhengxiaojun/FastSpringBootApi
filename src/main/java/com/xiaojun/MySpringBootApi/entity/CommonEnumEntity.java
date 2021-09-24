@@ -1,6 +1,8 @@
-package com.xiaojun.MySpringBootApi.interfaces;
+package com.xiaojun.MySpringBootApi.entity;
 
-public enum CommonEnum implements BaseErrorInfoInterface {
+import com.xiaojun.MySpringBootApi.interfaces.BaseErrorInfoInterface;
+
+public enum CommonEnumEntity implements BaseErrorInfoInterface {
     // 数据操作错误定义
     SUCCESS("200", "成功!"),
     BODY_NOT_MATCH("400", "请求的数据格式不符!"),
@@ -19,7 +21,7 @@ public enum CommonEnum implements BaseErrorInfoInterface {
      */
     private String resultMsg;
 
-    CommonEnum(String resultCode, String resultMsg) {
+    CommonEnumEntity(String resultCode, String resultMsg) {
         this.resultCode = resultCode;
         this.resultMsg = resultMsg;
     }

@@ -2,9 +2,8 @@ package com.xiaojun.MySpringBootApi.entity;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xiaojun.MySpringBootApi.interfaces.BaseErrorInfoInterface;
-import com.xiaojun.MySpringBootApi.interfaces.CommonEnum;
 
-public class ResultBody {
+public class ResultBodyEntity {
     /**
      * 响应代码
      */
@@ -20,10 +19,10 @@ public class ResultBody {
      */
     private Object result;
 
-    public ResultBody() {
+    public ResultBodyEntity() {
     }
 
-    public ResultBody(BaseErrorInfoInterface errorInfo) {
+    public ResultBodyEntity(BaseErrorInfoInterface errorInfo) {
         this.code = errorInfo.getResultCode();
         this.message = errorInfo.getResultMsg();
     }
@@ -57,7 +56,7 @@ public class ResultBody {
      *
      * @return
      */
-    public static ResultBody success() {
+    public static ResultBodyEntity success() {
         return success(null);
     }
 
@@ -66,10 +65,10 @@ public class ResultBody {
      * @param data
      * @return
      */
-    public static ResultBody success(Object data) {
-        ResultBody rb = new ResultBody();
-        rb.setCode(CommonEnum.SUCCESS.getResultCode());
-        rb.setMessage(CommonEnum.SUCCESS.getResultMsg());
+    public static ResultBodyEntity success(Object data) {
+        ResultBodyEntity rb = new ResultBodyEntity();
+        rb.setCode(CommonEnumEntity.SUCCESS.getResultCode());
+        rb.setMessage(CommonEnumEntity.SUCCESS.getResultMsg());
         rb.setResult(data);
         return rb;
     }
@@ -77,8 +76,8 @@ public class ResultBody {
     /**
      * 失败
      */
-    public static ResultBody error(BaseErrorInfoInterface errorInfo) {
-        ResultBody rb = new ResultBody();
+    public static ResultBodyEntity error(BaseErrorInfoInterface errorInfo) {
+        ResultBodyEntity rb = new ResultBodyEntity();
         rb.setCode(errorInfo.getResultCode());
         rb.setMessage(errorInfo.getResultMsg());
         rb.setResult(null);
@@ -88,8 +87,8 @@ public class ResultBody {
     /**
      * 失败
      */
-    public static ResultBody error(String code, String message) {
-        ResultBody rb = new ResultBody();
+    public static ResultBodyEntity error(String code, String message) {
+        ResultBodyEntity rb = new ResultBodyEntity();
         rb.setCode(code);
         rb.setMessage(message);
         rb.setResult(null);
@@ -99,8 +98,8 @@ public class ResultBody {
     /**
      * 失败
      */
-    public static ResultBody error( String message) {
-        ResultBody rb = new ResultBody();
+    public static ResultBodyEntity error(String message) {
+        ResultBodyEntity rb = new ResultBodyEntity();
         rb.setCode("-1");
         rb.setMessage(message);
         rb.setResult(null);
