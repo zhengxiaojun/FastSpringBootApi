@@ -1,12 +1,13 @@
 package com.xiaojun.MySpringBootApi.controller;
 
 import com.xiaojun.MySpringBootApi.entity.GoodsEntity;
+import com.xiaojun.MySpringBootApi.entity.ResultBo;
 import com.xiaojun.MySpringBootApi.services.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 商品控制器类
@@ -27,6 +28,7 @@ public class GoodsController {
      */
     @GetMapping("/goods")
     public List<GoodsEntity> getList() {
+//        int a = 1 / 0;
         return goodsService.getGoodsList();
     }
 
