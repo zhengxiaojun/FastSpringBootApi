@@ -1,12 +1,11 @@
 package com.xiaojun.MySpringBootApi.controller;
 
 import com.xiaojun.MySpringBootApi.entity.GoodsEntity;
-import com.xiaojun.MySpringBootApi.entity.ResultBo;
+import com.xiaojun.MySpringBootApi.services.GoodsRankService;
 import com.xiaojun.MySpringBootApi.services.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +16,9 @@ import java.util.List;
 public class GoodsController {
     @Autowired // 自动装配goodsService
     private GoodsService goodsService;
+
+    @Autowired
+    private GoodsRankService goodsRankService;
 
 
     /**
@@ -61,6 +63,14 @@ public class GoodsController {
     @DeleteMapping("/goods/{id}")
     public String delete(@PathVariable("id") long id) {
         return goodsService.removeGoods(id);
+    }
+
+    /**
+     * 排行榜
+     */
+    @GetMapping("/getRankList")
+    public List getRankList() throws Exception {
+        return goodsRankService.getRandkList();
     }
 }
 

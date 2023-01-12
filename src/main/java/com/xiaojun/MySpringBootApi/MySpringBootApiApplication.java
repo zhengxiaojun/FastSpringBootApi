@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableAdminServer // 开启监控管理
+//@EnableAdminServer // 开启监控管理
 //@EnableScheduling // 开启定时任务
 public class MySpringBootApiApplication {
     public static void main(String[] args) {
