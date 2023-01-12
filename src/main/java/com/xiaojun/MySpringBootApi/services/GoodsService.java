@@ -63,7 +63,7 @@ public class GoodsService {
      * 新增商品，模拟返回数据库影响行数
      */
     public String addGoods(GoodsEntity goods) {
-        String sql = "insert into goods values(" + goods.id + ",'" + goods.name + "','" + goods.pic + "','" + goods.price + "');";
+        String sql = String.format("insert into goods values(%d,'%s','%s','%s');", goods.id, goods.name, goods.price, goods.pic);
         jdbcTemplate.execute(sql);
         return "添加成功";
     }
@@ -72,7 +72,7 @@ public class GoodsService {
      * 根据商品id更新商品信息，模拟返回数据库影响行数
      */
     public String editGoods(GoodsEntity goods) {
-        String sql = "update goods set name='" + goods.name + "',pic='" + goods.pic + "',price='" + goods.price + "' where id=" + goods.id + ";";
+        String sql = String.format("update goods set name='%s',pic='%s',price='%s' where id=%d;", goods.name, goods.pic, goods.price, goods.id);
         jdbcTemplate.execute(sql);
         return "更新成功";
     }
