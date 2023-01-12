@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 
+import java.util.Objects;
+
 /**
  * 定时任务配置
  */
@@ -27,9 +29,9 @@ public class QuartzConfig {
     CronTriggerFactoryBean cronTrigger() {
         CronTriggerFactoryBean bean = new CronTriggerFactoryBean();
         // Corn表达式设定执行时间规则,从左到右一共 6 个位置，分别代表秒、分、时、日、月、星期
-        bean.setCronExpression("0 28 14 * * ?");
+        bean.setCronExpression("0 30 10 * * ?");
         // 执行JobDetail
-        bean.setJobDetail(jobFactoryBean().getObject());
+        bean.setJobDetail(Objects.requireNonNull(jobFactoryBean().getObject()));
         return bean;
     }
 }

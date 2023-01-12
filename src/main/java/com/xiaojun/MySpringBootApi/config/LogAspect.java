@@ -27,6 +27,6 @@ public class LogAspect {
     // 切入点之前执行
     @Before("LogAspect()")
     public void doBefore(JoinPoint joinPoint) {
-        logger.info("访问时间：{}--访问接口:{}", new Date(), joinPoint.getSignature());
+        logger.info("访问接口:{}", joinPoint.getSignature());
     }
 }

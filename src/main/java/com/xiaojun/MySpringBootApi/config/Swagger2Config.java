@@ -38,3 +38,4 @@ public class Swagger2Config {
     }
 }
 
+//  访问地址：http://localhost:8000/v1/api/swagger-ui.html

@@ -15,7 +15,7 @@ public class DiscountJob {
      */
     public void execute() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println(sdf.format(new Date()) + " [任务调度器] INFO 更新数据库中商品价格，统一打5折");
+        System.out.println(sdf.format(new Date()) + " [Quartz任务调度器] INFO 更新数据库中商品价格，统一打5折");
     }
 }
 
