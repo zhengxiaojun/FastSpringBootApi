@@ -18,10 +18,6 @@ public class GoodsController {
     @Autowired // 自动装配goodsService
     private GoodsService goodsService;
 
-    @GetMapping("/goods/{id}")
-    public GoodsEntity getOne(@PathVariable("id") long id) {
-        return goodsService.getGoodsById(id);
-    }
 
     /**
      * 查询商品列表，使用get方法
@@ -30,6 +26,14 @@ public class GoodsController {
     public List<GoodsEntity> getList() {
 //        int a = 1 / 0;
         return goodsService.getGoodsList();
+    }
+
+    /**
+     * 按ID查询商品列表，使用get方法
+     */
+    @GetMapping("/goods/{id}")
+    public GoodsEntity getOne(@PathVariable("id") long id) {
+        return goodsService.getGoodsById(id);
     }
 
     /**

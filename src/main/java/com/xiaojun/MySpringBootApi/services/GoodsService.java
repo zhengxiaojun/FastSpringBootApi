@@ -31,19 +31,13 @@ public class GoodsService {
         String sql = "select * from goods";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         for (Map<String, Object> map : list) {
-//            Set<Entry<String, Object>> entries = map.entrySet();
-//            for (Entry<String, Object> entry : entries) {
-//                Object key = entry.getKey();
-//                Object value = entry.getValue();
-//                logger.info(key + ":" + value);
-//            }
-            logger.info(String.valueOf(map));
             GoodsEntity goods_entity = new GoodsEntity();
             goods_entity.setId(Long.parseLong(map.get("id").toString()));
             goods_entity.setName(map.get("name").toString());
             goods_entity.setPic(map.get("pic").toString());
             goods_entity.setPrice(map.get("price").toString());
             goodsList.add(goods_entity);
+            logger.info(String.valueOf(goods_entity));
         }
 
         return goodsList;
@@ -62,23 +56,6 @@ public class GoodsService {
             }
         }
         return goods_entity;
-//        Map<String, Object> map = null;
-//        for (Map<String, Object> dbmap : list) {
-//            Set<String> set = dbmap.keySet();
-//            for (String key : set) {
-//                if (key.equals("id")) {
-//                    if (dbmap.get(key).equals(id)) {
-//                        map = dbmap;
-//                    }
-//                }
-//            }
-//        }
-//        if (map == null) {
-//            HashMap<String, Object> good = new HashMap<String, Object>();
-//            // 添加键值对
-//            good.put("msg", "未查询到商品");
-//            map = good;
-//        }
     }
 
     /**
