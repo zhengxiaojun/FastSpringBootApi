@@ -55,6 +55,7 @@ public class GoodsService {
                 goods_entity = goodEntity;
             }
         }
+        logger.info(String.valueOf(goods_entity));
         return goods_entity;
     }
 
